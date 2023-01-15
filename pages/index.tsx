@@ -1,12 +1,15 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import { Inter } from "@next/font/google";
 import { Pokemon } from "@/lib/types";
 import { fetchAllPokemon } from "@/lib/fetch";
+import { GetStaticProps } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
 
 type HomeProps = {
+  /** All 151 Pokemon as an Array. */
   pokemon: Pokemon[];
 };
 export default function Home({ pokemon }: HomeProps) {
@@ -21,20 +24,20 @@ export default function Home({ pokemon }: HomeProps) {
       <main>
         <h1>Poxedex</h1>
         {pokemon.map((p) => (
-          <a href="" key={p.id}>
+          <Link href={`/${p.id}`} key={p.id}>
             <p>{p.name}</p>
-          </a>
+          </Link>
         ))}
       </main>
     </>
   );
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const pokemon = await fetchAllPokemon();
   return {
     props: {
       pokemon,
     }, // will be passed to the page component as props
   };
-}
+};
