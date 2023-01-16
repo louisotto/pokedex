@@ -5,7 +5,7 @@ export const StyledHomeGrid = styled.section`
   width: 100%;
   padding: 2vw;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
   grid-template-rows: repeat(auto-fill, 1fr);
   grid-column-gap: 2vw;
   grid-row-gap: 2vw;
@@ -14,11 +14,21 @@ export const StyledHomeGrid = styled.section`
 export const StyledCard = styled(Link)`
   background-color: white;
   position: relative;
+  margin: auto;
   width: 100%;
   max-width: 400px;
-  p {
-    text-transform: capitalize;
+  box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.1);
+  will-change: box-shadow;
+  transition: box-shadow 0.4s ease;
+  &:hover {
+    box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.2);
   }
+`;
+
+export const StyledCardTitle = styled.p`
+  text-transform: capitalize;
+  font-weight: 700;
+  font-size: 24px;
 `;
 
 export const Number = styled.p`
@@ -28,6 +38,7 @@ export const Number = styled.p`
   opacity: 0.4;
   font-size: 32px;
   font-style: italic;
+  line-height: 0.7;
 `;
 
 type BgProps = {
@@ -36,11 +47,11 @@ type BgProps = {
 
 export const StyledCardImage = styled.div<BgProps>`
   width: 100%;
-  background: url(/bg/${(props) => props.bg + ".svg"}) no-repeat;
-  background-size: cover;
 
+  background-color: ${(props) => props.theme.colors[props.bg]};
   img {
     width: 80%;
+    height: auto;
     margin: auto;
     display: block;
   }
@@ -53,9 +64,16 @@ export const StyledCardTray = styled.div`
   padding: 25px;
 `;
 
+export const PillTray = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 export const Pill = styled.span<BgProps>`
+  margin: 0 5px;
   padding: 5px 10px;
-  background: url(/bg/${(props) => props.bg + ".svg"}) no-repeat;
+  background: ${(props) => props.theme.colors[props.bg]};
   color: white;
   text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
   border-radius: 20px;

@@ -1,18 +1,27 @@
-import { Pokemon, PokemonTypes } from "@/lib/types";
-import { StyledHomeGrid, StyledCard, StyledCardImage, StyledCardTray, Number, Pill } from "./styles";
+import Image from "next/image";
+import { GridProps, Pokemon, TypesProps } from "@/lib/types";
+import {
+  StyledHomeGrid,
+  StyledCard,
+  StyledCardImage,
+  StyledCardTray,
+  StyledCardTitle,
+  Number,
+  PillTray,
+  Pill,
+} from "./styles";
 
-type GridProps = {
-  /** All 151 Pokemon as an Array. */
-  pokemon: Pokemon[];
-};
-
-type TypesProps = {
-  types: PokemonTypes[];
-};
-
+/** A function that generates the Pills for a Pokemon's type
+ * @param {Array} types The array of types brought in from the API
+ * @returns {JSX} PillTray component with Pill(s)
+ */
 function Types({ types }: TypesProps) {
-  let pills = types.map(({ type }) => <Pill bg={type.name}>{type.name}</Pill>);
-  return <div>{pills}</div>;
+  let pills = types.map(({ type }) => (
+    <Pill key={type.name} bg={type.name}>
+      {type.name}
+    </Pill>
+  ));
+  return <PillTray>{pills}</PillTray>;
 }
 
 /**
@@ -27,11 +36,11 @@ export const HomeGrid = ({ pokemon }: GridProps) => {
         return (
           <StyledCard href={`/${p.name}`} key={p.id}>
             <StyledCardImage bg={p.types[0].type.name}>
-              <img src={p.image} alt={`Image of ${p.name}`} />
+              <Image src={p.image} alt={`Image of ${p.name}`} width="300" height="300" />
             </StyledCardImage>
             <Number>#{p.id}</Number>
             <StyledCardTray>
-              <p>{p.name}</p>
+              <StyledCardTitle>{p.name}</StyledCardTitle>
               <Types types={p.types} />
             </StyledCardTray>
           </StyledCard>

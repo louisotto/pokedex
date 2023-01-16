@@ -19,3 +19,12 @@ export type Pokemon = {
   image: string;
   types: PokemonTypes[];
 };
+
+export type GridProps = {
+  /** All 151 Pokemon as an Array. */
+  pokemon: Pokemon[];
+};
+
+export type TypesProps = {
+  types: PokemonTypes[];
+};
