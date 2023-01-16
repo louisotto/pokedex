@@ -1,11 +1,11 @@
 /** An index of an individual Pokemon's types */
-type PokemonTypes = {
+export type PokemonTypes = {
   slot: number;
   type: PokemonType;
 };
 
 /** An individual Pokemon's "type" e.g "fire", "poison", "grass" etc */
-type PokemonType = {
+export type PokemonType = {
   name: string;
   url: string;
 };

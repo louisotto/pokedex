@@ -5,7 +5,7 @@ import type { AppProps } from "next/app";
 
 import { Lato } from "@next/font/google";
 
-const lato = Lato({ weight: "400", subsets: ["latin"] });
+const lato = Lato({ weight: "400", style: ["normal", "italic"], subsets: ["latin"] });
 
 export const theme: DefaultTheme = {};
 
