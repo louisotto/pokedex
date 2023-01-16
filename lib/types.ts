@@ -3,4 +3,6 @@ export type Pokemon = {
   name: string;
   url: string;
   data: any;
+  image: string;
+  types: [];
 };

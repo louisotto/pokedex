@@ -24,7 +24,8 @@ export default function Home({ pokemon }: HomeProps) {
       <main>
         <h1>Poxedex</h1>
         {pokemon.map((p) => (
-          <Link href={`/${p.id}`} key={p.id}>
+          <Link href={`/${p.name}`} key={p.id}>
+            <img src={`/pokemon/${p.name}.jpg`} alt="" />
             <p>{p.name}</p>
           </Link>
         ))}

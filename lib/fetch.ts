@@ -4,14 +4,26 @@ import { Pokemon } from "./types";
  * This function fetches the first 151 Pokemon from the PokeAPI and returns them as an array of Objects.
  * @returns {Array} Returns array of the first 151 Pokemon
  */
-export async function fetchAllPokemon(): Promise<Pokemon[]> {
+export async function fetchAllPokemon() {
   const data = await fetch("https://pokeapi.co/api/v2/pokemon/?limit=151")
     .then((response) => response.json())
-    .then(({ results }) => {
+    .then(async ({ results }) => {
       // As the API only retrieves a `name` and `url`, we need to make a call
-      // for each Pokemon to get their full descriptions from their `url` value.
-      let promisesArray = results.map((result: Pokemon) => fetch(result.url).then((response) => response.json()));
-      return Promise.all(promisesArray);
+      // for each Pokemon to get the information we want
+      const pokeData: Pokemon[] = await Promise.all(
+        results.map(async (p: Pokemon, key: number) => {
+          const response = await fetch(p.url);
+          const { name, id, types }: Pokemon = await response.json();
+          return {
+            name,
+            id,
+            image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`,
+            types,
+          };
+        })
+      );
+
+      return pokeData;
     });
 
   return data;
