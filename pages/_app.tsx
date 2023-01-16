@@ -1,6 +1,5 @@
 import { ThemeProvider, DefaultTheme } from "styled-components";
 import Head from "next/head";
-import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 
 import { Lato } from "@next/font/google";
@@ -36,6 +35,30 @@ export default function App({ Component, pageProps }: AppProps) {
       <style jsx global>{`
         html {
           font-family: ${lato.style.fontFamily};
+        }
+        html,
+        body {
+          max-width: 100vw;
+          overflow-x: hidden;
+        }
+        body {
+          padding: 25px;
+        }
+        * {
+          box-sizing: border-box;
+          padding: 0;
+          margin: 0;
+        }
+
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
+
+        @media (prefers-color-scheme: dark) {
+          html {
+            color-scheme: dark;
+          }
         }
       `}</style>
       <Head>

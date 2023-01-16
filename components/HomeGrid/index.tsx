@@ -1,28 +1,12 @@
 import Image from "next/image";
-import { GridProps, Pokemon, TypesProps } from "@/lib/types";
-import {
-  StyledHomeGrid,
-  StyledCard,
-  StyledCardImage,
-  StyledCardTray,
-  StyledCardTitle,
-  Number,
-  PillTray,
-  Pill,
-} from "./styles";
+import { Pokemon } from "@/lib/types";
+import { StyledHomeGrid, StyledCard, StyledCardImage, StyledCardTray, StyledCardTitle, Number } from "./styles";
+import { Types } from "../SinglePokemon/Types";
 
-/** A function that generates the Pills for a Pokemon's type
- * @param {Array} types The array of types brought in from the API
- * @returns {JSX} PillTray component with Pill(s)
- */
-function Types({ types }: TypesProps) {
-  let pills = types.map(({ type }) => (
-    <Pill key={type.name} bg={type.name}>
-      {type.name}
-    </Pill>
-  ));
-  return <PillTray>{pills}</PillTray>;
-}
+type GridProps = {
+  /** All 151 Pokemon as an Array. */
+  pokemon: Pokemon[];
+};
 
 /**
  * A grid displaying the first 151 Pokemon.

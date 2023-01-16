@@ -20,11 +20,7 @@ export type Pokemon = {
   types: PokemonTypes[];
 };
 
-export type GridProps = {
-  /** All 151 Pokemon as an Array. */
-  pokemon: Pokemon[];
-};
-
-export type TypesProps = {
-  types: PokemonTypes[];
+// STYLED COMPONENT PROPS
+export type BgProps = {
+  bg: string;
 };

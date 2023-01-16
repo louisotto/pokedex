@@ -34,7 +34,7 @@ export async function fetchAllPokemon() {
  * @param {number} id The ID of the Pokemon
  * @returns {Pokemon} An object with all of the data for a Pokemon
  */
-export async function fetchPokemon(id: number | string): Promise<Pokemon> {
+export async function fetchPokemon(id: string | string[] | undefined): Promise<Pokemon> {
   const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`).then((response) => response.json());
 
   return data;
