@@ -17,4 +17,7 @@ export const StyledPill = styled.span<PillProps>`
   justify-content: center;
   line-height: 1;
   text-transform: uppercase;
+  &:hover {
+    cursor: pointer;
+  }
 `;

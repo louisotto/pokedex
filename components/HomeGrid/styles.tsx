@@ -5,7 +5,7 @@ import styled from "styled-components";
 export const StyledHomeGrid = styled.section`
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(auto-fill, 1fr);
   grid-column-gap: 2vw;
   grid-row-gap: 2vw;
@@ -58,4 +58,20 @@ export const StyledCardTray = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 25px;
+`;
+
+export const FilterTray = styled.div`
+  width: 100%;
+  padding: 25px;
+  background-color: white;
+  margin-bottom: 25px;
+  box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.1);
+  h2 {
+    line-height: 1;
+    margin-bottom: 0.5vw;
+    text-transform: none;
+  }
+  input {
+    padding: 0.2vw;
+  }
 `;
