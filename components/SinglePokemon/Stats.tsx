@@ -18,7 +18,7 @@ type StatDetails = {
 
 export const Stats = ({ stats }: StatsProps) => {
   const list = stats.map((stat) => (
-    <li>
+    <li key={stat.stat.name}>
       <p>{stat.stat.name.replace("-", " ")}</p>
       <ProgressBar completed={stat.base_stat} maxCompleted={255} customLabel={stat.base_stat.toString()} />
     </li>

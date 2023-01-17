@@ -15,10 +15,15 @@ export const MainLayout = styled.main`
 export const Hero = styled.section`
   grid-area: Main;
   background-color: white;
+  box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.1);
 `;
 
 export const HeroBanner = styled.div`
   padding: 10px 25px;
+  span,
+  h1 {
+    display: inline-block;
+  }
   h1 {
     text-transform: capitalize;
   }
@@ -39,6 +44,7 @@ export const HeroImage = styled.div<BgProps>`
 export const Sidebar = styled.aside`
   grid-area: Sidebar;
   background-color: white;
+  box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.1);
   padding: 10px 25px;
   h2,
   div {

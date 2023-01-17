@@ -20,7 +20,7 @@ export const HomeGrid = ({ pokemon }: GridProps) => {
         return (
           <StyledCard href={`/${p.name}`} key={p.id}>
             <StyledCardImage bg={p.types[0].type.name}>
-              <Image src={p.image} alt={`Image of ${p.name}`} width="300" height="300" />
+              <Image src={p.image || ""} alt={`Image of ${p.name}`} width="300" height="300" />
             </StyledCardImage>
             <Number>#{p.id}</Number>
             <StyledCardTray>
