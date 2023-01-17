@@ -16,5 +16,5 @@ export const Types = ({ types }: TypesProps) => {
       {type.name}
     </Pill>
   ));
-  return <PillTray>{pills}</PillTray>;
+  return <PillTray role="group">{pills}</PillTray>;
 };

@@ -6,7 +6,10 @@ import { Lato } from "@next/font/google";
 
 const lato = Lato({ weight: ["400", "700"], style: ["normal", "italic"], subsets: ["latin"] });
 
-export const theme: DefaultTheme = {
+interface Theme extends DefaultTheme {
+  colors: Object;
+}
+export const theme: Theme = {
   colors: {
     normal: "#A8A77A",
     fire: "#EE8130",

@@ -11,6 +11,7 @@ import {
 } from "./styles";
 import { Types } from "../SinglePokemon/Types";
 import { useState, useEffect } from "react";
+import { theme } from "../../pages/_app";
 
 type GridProps = {
   /** All 151 Pokemon as an Array. */
@@ -24,7 +25,9 @@ type GridProps = {
  */
 export const HomeGrid = ({ pokemon }: GridProps) => {
   const [search, setSearch] = useState<string>("");
+  // const [filter, setFilter] = useState<string>("");
   const [visiblePokemon, setVisiblePokemon] = useState(pokemon);
+  const typeFilters = Object.keys(theme.colors);
 
   useEffect(() => {
     let filteredPokemon = pokemon.filter(
@@ -32,6 +35,13 @@ export const HomeGrid = ({ pokemon }: GridProps) => {
     );
     setVisiblePokemon(filteredPokemon);
   }, [search]);
+
+  // useEffect(() => {
+  //   let filteredPokemon = pokemon.filter(
+  //     (pokemon) => pokemon.name.includes(search) || pokemon.id.toString() === search
+  //   );
+  //   setVisiblePokemon(filteredPokemon);
+  // }, [filter]);
 
   function clearSearchFilters() {
     setSearch("");
@@ -50,6 +60,16 @@ export const HomeGrid = ({ pokemon }: GridProps) => {
           }}
         />
         <button onClick={() => clearSearchFilters()}>Reset</button>
+        {/* <select name="" id="" defaultValue="" onChange={(e) => console.log(e.target.value)}>
+          <option value="" disabled hidden>
+            Choose type
+          </option>
+          {typeFilters.map((type) => (
+            <option key={type} value={type}>
+              {type}
+            </option>
+          ))}
+        </select> */}
       </FilterTray>
       <StyledHomeGrid>
         {visiblePokemon.map((p: Pokemon) => {

@@ -22,5 +22,5 @@ export const Abilities = ({ abilities }: AbilitiesProps) => {
       <Tooltip anchorId={name} noArrow={true} content={description.flavor_text} place="top" />
     </Pill>
   ));
-  return <PillTray>{pills}</PillTray>;
+  return <PillTray role="group">{pills}</PillTray>;
 };
