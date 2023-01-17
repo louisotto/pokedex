@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Pokemon } from "@/lib/types";
 import { Types } from "./Types";
 import { Stats } from "./Stats";
+import { Abilities } from "./Abilities";
 import { MainLayout, Hero, Sidebar, Body, HeroBanner, HeroImage, SubHeading } from "./styles";
 
 /** The main presentational component for a single Pokemon
@@ -31,6 +32,8 @@ export const SinglePokemon = (pokemon: Pokemon) => (
         <h2>Technical Information</h2>
         <SubHeading>Type</SubHeading>
         <Types types={pokemon.types} />
+        <SubHeading>Abilities</SubHeading>
+        <Abilities abilities={pokemon.abilities} />
         <Stats stats={pokemon.stats} />
       </Sidebar>
       <Body></Body>

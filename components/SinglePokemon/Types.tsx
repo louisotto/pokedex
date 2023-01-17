@@ -1,5 +1,6 @@
 import { PokemonTypes } from "@/lib/types";
-import { PillTray, Pill } from "./styles";
+import { Pill } from "../Pill";
+import { PillTray } from "./styles";
 
 type TypesProps = {
   types: PokemonTypes[];

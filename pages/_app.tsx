@@ -1,7 +1,7 @@
 import { ThemeProvider, DefaultTheme } from "styled-components";
 import Head from "next/head";
 import type { AppProps } from "next/app";
-
+import "react-tooltip/dist/react-tooltip.css";
 import { Lato } from "@next/font/google";
 
 const lato = Lato({ weight: ["400", "700"], style: ["normal", "italic"], subsets: ["latin"] });
