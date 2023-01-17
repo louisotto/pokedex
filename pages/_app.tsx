@@ -43,11 +43,13 @@ export default function App({ Component, pageProps }: AppProps) {
         }
         body {
           padding: 25px;
+          background-color: #eee;
         }
         * {
           box-sizing: border-box;
           padding: 0;
           margin: 0;
+          text-transform: capitalize;
         }
 
         a {

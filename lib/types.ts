@@ -18,6 +18,7 @@ export type Pokemon = {
   data: any;
   image: string;
   types: PokemonTypes[];
+  stats: [];
 };
 
 // STYLED COMPONENT PROPS
